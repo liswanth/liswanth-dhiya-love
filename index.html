@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Will You Be My Wife?</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/framer-motion/dist/framer-motion.umd.js"></script>
+  <style>
+    body {
+      background: radial-gradient(circle at top, #ffe4e6, #fff);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center font-serif">
+  <audio id="bg-music" autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7c3f6c6a4e.mp3" type="audio/mpeg">
+  </audio>
+  <div class="bg-white/80 backdrop-blur-lg shadow-2xl rounded-3xl p-10 max-w-xl text-center">
+    <h1 class="text-4xl md:text-5xl font-bold text-pink-600 mb-6">Dhiya ❤️</h1>
+
+    <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
+      From the moment you walked into my life, everything changed.
+      You make ordinary days magical, and I can’t imagine a future without you.
+      <br/><br/>
+      With all my heart,
+      <strong>Liswanth</strong>
+    </p>
+
+    <p class="text-2xl font-semibold text-gray-800 mb-10">
+      Dhiya, will you be my wife?
+    </p>
+
+    <div class="flex flex-col md:flex-row gap-4 justify-center">
+      <button onclick="yesClicked()"
+        class="px-8 py-4 rounded-2xl bg-pink-500 text-white text-xl font-semibold shadow-lg hover:bg-pink-600 transition">
+        Yes 💍
+      </button>
+
+      <button onclick="noClicked()"
+        class="px-8 py-4 rounded-2xl bg-gray-200 text-gray-700 text-xl font-semibold shadow hover:bg-gray-300 transition">
+        I need time 🙈
+      </button>
+    </div>
+
+    <p id="response" class="mt-8 text-2xl font-semibold text-pink-600 hidden"></p>
+  </div>
+
+  <script>
+    function yesClicked() {
+      const response = document.getElementById('response');
+      response.innerText = "You just made me the happiest person alive 💖
+Forever yours, Liswanth.";
+      response.classList.remove('hidden');
+      confetti();
+    }
+
+    function noClicked() {
+      const response = document.getElementById('response');
+      response.innerText = "That’s okay ❤️ My heart will always wait for you.
+— Liswanth";
+      response.classList.remove('hidden');
+    }
+
+    function confetti() {
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement('div');
+        heart.innerText = '💖';
+        heart.style.position = 'fixed';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.top = '-20px';
+        heart.style.fontSize = Math.random() * 24 + 16 + 'px';
+        heart.style.animation = 'fall 3s linear';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 3000);
+      }
+    }
+  </script>
+
+  <style>
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</body>
+</html>
